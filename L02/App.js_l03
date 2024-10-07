@@ -1,0 +1,36 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+const heading = React.createElement("h1",{"id":"heading"},"This is React");
+
+
+//JSX way , it is camelcase see className
+const jsxHeading = <h1 id="heading" className="head"> This is JSX Heading  React Element 🚀</h1>;
+
+console.log(heading);
+
+console.log(jsxHeading);
+
+//both objects are same
+
+//Components
+//class component OLD way uses JS classes
+//functional component NEW way uses JS functions
+
+const TitleComponent = () =>  (<h1>This is Title func component.
+    New multiline
+</h1>);
+
+//Component Composition -- one component inside another component
+//any js function /variable inside {} , you can write javascript inside {}
+//jsxHeading is a ReactElement which is in turn a JS Object we can inject  it as well
+const HeadingComponent = () => { return (<div id="container"> <TitleComponent /> <h1>This is func component.
+                New multiline
+                { 100 + 400 } { jsxHeading }
+</h1></div>);};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+//root.render(jsxHeading);
+
+root.render(<HeadingComponent />);

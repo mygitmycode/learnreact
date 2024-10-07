@@ -1,28 +1,30 @@
-//const headingrjs = React.createElement("h1",{id:"heading"},"Hello From React JS");
-//const rootrjs = ReactDOM.createRoot(document.getElementById("root"));
-//rootrjs.render(headingrjs);
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-/**
- * 
- * div parent
- *  div child
- *          h1
- *          h2
- *  div child2
- *          h1
- *          h2
- */
+const Header = () => {return (
+    <div className="header">
+        <div className="logo-container">
+            <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&sf=&txt_keyword=All" /> 
+        </div>
+        <div className="nav-items">
+            <ul>
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Contact Us</li>
+                <li>Cart</li>
+            </ul>
+        </div>
+    </div>
+);};
 
-const phead = React.createElement("div",{id:"parent"},[
 
-    React.createElement("div",{id:"child"},
-        [React.createElement("h1",{}, "I am h1 tag"),
-        React.createElement("h2",{}, "I am h2 tag")]),
-    
-        React.createElement("div",{id:"child2   "},
-            [React.createElement("h1",{}, "I am h1 tag"),
-            React.createElement("h2",{}, "I am h2 tag")])
+const AppLayout = () => { return (
+        <div className="app">
+            <Header/>
+        </div>
 
-]);
-const rootrjs = ReactDOM.createRoot(document.getElementById("root"));
-rootrjs.render(phead);
+);};
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(<AppLayout />);
